@@ -45,7 +45,7 @@ function createFeatures(earthquakeData) {
     // Define onEachFeature function with feature and layer as parameters
     // to bind a popup to each feature with the earthquake's title, location, magnitude, and depth
     function onEachFeature(feature, layer) {
-        layer.bindPopup(`<h1>${feature.properties.title}</h1> <hr> <h3>Location: ${feature.properties.place}</h3> <h3>Magnitude: ${feature.properties.mag}</h3> <h3>Depth: ${feature.geometry.coordinates[2]}</h3>`);
+        layer.bindPopup(`<h3>${feature.properties.title}</h3> <hr> <pr>Location: ${feature.properties.place}</pr> <br> <pr>Time: ${new Date (feature.properties.time)}</pr> <br> <pr>Magnitude: ${feature.properties.mag}</pr> <br> <pr>Depth: ${feature.geometry.coordinates[2]}</pr>`);
     }
     
     // Create geoJSON layer, passing the earthquakeData as a parameter and storing it as a variable
