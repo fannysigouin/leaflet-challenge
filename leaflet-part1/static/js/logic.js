@@ -74,7 +74,35 @@ function createMap(earthquakes) {
         layers: [street, earthquakes]
     });
 
+    // Base map layer
+    let baseMaps = {
+        "Street": street
+    };
+
+    // Overlay map layer for earthquakes
+    let overlayMaps = {
+        Earthquakes: earthquakes
+    };
+
+    // Create control layer and add to the map
     L.control.layers(baseMaps, overlayMaps, {
-        collapsed: false
+        collapsed: true
     }).addTo(myMap);
+
+    //Create the legend
+    let legend = L.control({position: "bottomright"});
+    legend.onAdd = function() {
+        let div = L.DomUtil.create("div", "info legend");
+        grades = [-10, 10, 30, 50, 70, 90]
+        let legendInfo = '<h3>Magnitude</h3>';
+
+        div.innerHTML = legendInfo;
+
+        for (let i = 0; i < grades.length; i++) {
+            div.innerHTML += '<i style="background: ' + markerColour(grades[i]) + '"></i> ' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+'); 
+        }
+        return div;
+    };
+
+    legend.addTo(myMap);
 }
