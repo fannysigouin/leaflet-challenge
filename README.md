@@ -24,4 +24,4 @@ Sample of the visualization:
 
 ## References
 
-Dataset created by the [United States Geological Survey](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
+Dataset created by the [United States Geological Survey](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php). Framework to build the legend borrowed from https://leafletjs.com/examples/choropleth/ Custom Legend Control.
