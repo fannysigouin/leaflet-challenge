@@ -32,8 +32,10 @@ function markerColour(depth) {
 // Define a function to create the circle markers
 function createMarker(feature, latlng) {
     return L.circleMarker(latlng, {
+        // call markerSize function
         radius: markerSize(feature.properties.mag),
         color: "black",
+        // call markerColour function
         fillColor: markerColour(feature.geometry.coordinates[2]),
         weight: 0.5,
         fillOpacity: 0.75
@@ -89,20 +91,25 @@ function createMap(earthquakes) {
         collapsed: true
     }).addTo(myMap);
 
-    //Create the legend
+    // Create the legend
+    // 
     let legend = L.control({position: "bottomright"});
     legend.onAdd = function() {
+        // Add legend to HTML
         let div = L.DomUtil.create("div", "info legend");
+        // Set magnitude intervals
         grades = [-10, 10, 30, 50, 70, 90]
+        // Add legend info/title to HTML
         let legendInfo = '<h3>Magnitude</h3>';
-
         div.innerHTML = legendInfo;
 
+        // Loop through magnitude intervals to generate a label with a coloured square based on the markerColour function
         for (let i = 0; i < grades.length; i++) {
+            // Display intervals with the coloured square
             div.innerHTML += '<i style="background: ' + markerColour(grades[i]) + '"></i> ' + grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+'); 
         }
         return div;
     };
-
+    // Add legend to the map
     legend.addTo(myMap);
 }
