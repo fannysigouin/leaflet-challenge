@@ -19,6 +19,9 @@ The earthquake data was obtained using the USGS API and D3. The visualization wa
 - `createFeatures` function was created to bind a popup to each marker, allowing the user to click on the marker and see information about the earthquake. This function also creates the geoJSON layer and then creates the map by calling the final function below.
 - `createMap` function was created to build the map base and overlay layers as well as to create the magnitude legend.
 
+Sample of the visualization:
+![Alt text](<final viz sample.png>)
+
 ## References
 
 Dataset created by the [United States Geological Survey](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php).
