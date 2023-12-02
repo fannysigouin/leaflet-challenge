@@ -92,7 +92,6 @@ function createMap(earthquakes) {
     }).addTo(myMap);
 
     // Create the legend
-    // 
     let legend = L.control({position: "bottomright"});
     legend.onAdd = function() {
         // Add legend to HTML
